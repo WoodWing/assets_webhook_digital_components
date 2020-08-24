@@ -55,21 +55,34 @@ class Server {
                             metadata[tag].push(end.trim());
                         }
 
-                        if (component.identifier == "recipe") {
+                        // if (component.identifier == "recipe") {
+                        // }
+
+                        // if (component.identifier == "ingredients") {
+                        //     for (const i in component.containers.main) {
+                                
+                        //         const ingredient = component.containers.main[i];
+                        //         if (ingredient.content.notes) {
+                        //             console.log('ingredients', JSON.stringify(ingredient.content.notes[0]));
+                        //             metadata['cf_ingredients'].push(ingredient.content.notes[0].insert);
+                        //         }
+                        //     };
+                        // }
+
+                        //bdefce50-da54-46ee-803a-20905dc4a4ed
+                        //ce796d9d-47ad-4625-b238-4063c285907b
+                        //2.2
+
+                        if (!req.body.metadata.sceCsComponentSet) {
+                            metadata['sceCsComponentSet'] = "bdefce50-da54-46ee-803a-20905dc4a4ed";
+                            metadata['sceCsStyleId'] = "ce796d9d-47ad-4625-b238-4063c285907b";
+                            metadata['sceCsFileFormatVersion'] = "2.2";
                         }
 
-                        if (component.identifier == "ingredients") {
-                            for (const i in component.containers.main) {
-                                
-                                const ingredient = component.containers.main[i];
-                                if (ingredient.content.notes) {
-                                    console.log('ingredients', JSON.stringify(ingredient.content.notes[0]));
-                                    metadata['cf_ingredients'].push(ingredient.content.notes[0].insert);
-                                }
-                            };
-                        }
+                       console.log(JSON.stringify(metadata));
+                     
                 });
-                for (const field in metadata) metadata[field] = metadata[field].filter(Boolean)
+                // for (const field in metadata) metadata[field] = metadata[field].filter(Boolean)
                 console.log(metadata)
                 this.apiManager.update(req.body.assetId, JSON.stringify(metadata));
                 res.sendStatus(200);
