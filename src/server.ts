@@ -69,13 +69,9 @@ class Server {
                         //     };
                         // }
 
-                        //bdefce50-da54-46ee-803a-20905dc4a4ed
-                        //ce796d9d-47ad-4625-b238-4063c285907b
-                        //2.2
-
                         if (!req.body.metadata.sceCsComponentSet) {
-                            metadata['sceCsComponentSet'] = "bdefce50-da54-46ee-803a-20905dc4a4ed";
-                            metadata['sceCsStyleId'] = "ce796d9d-47ad-4625-b238-4063c285907b";
+                            metadata['sceCsComponentSet'] = "7e5bb0e2-bc42-4c41-9f2f-ab8ae3a38ce1";
+                            metadata['sceCsStyleId'] = "";
                             metadata['sceCsFileFormatVersion'] = "2.2";
                         }
 
