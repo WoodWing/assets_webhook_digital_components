@@ -39,11 +39,13 @@ class Server {
                 const article = JSON.parse(fs.readFileSync(file, "utf8"));
                 let metadata = JSON.parse(JSON.stringify(Config.fields));
                 article.data.content.forEach(component => {
-                    if (!metadata.cf_components.includes(component.identifier)) metadata.cf_components.push(component.identifier);
-                    if (["title", "subtitle", "hero", "headline", "author", "crosshead", "quote", "recipe", "ingredients"].includes(component.identifier))
+                    if (!metadata.cf_components.includes(component.identifier)) 
+                        metadata.cf_components.push(component.identifier);
+
+                    if (["title", "subtitle", "kicker", "hero", "headline", "author", "credit ","crosshead", "quote", "recipe", "ingredients"].includes(component.identifier))
                         for (const identifier in component.content) {
-                            if (!(["title", "recipe", "subtitle", "author"].includes(identifier) || (["crosshead", "quote", "title", "recipe"].includes(component.identifier) && identifier == "text"))) continue;
-                            const tag = `cf_${identifier == "text" ? component.identifier : identifier}`;
+                            if (!(["title", "recipe", "subtitle","kicker", "author", "credit"].includes(identifier) || (["crosshead", "quote", "title", "recipe"].includes(component.identifier) && identifier == "text"))) continue;
+                            const tag = `cf_${(identifier == "text" || identifier == "title") ? component.identifier : identifier}`;
                             if (typeof metadata[tag] != "object" || (component.identifier == "quote" && identifier == "author")) continue;
                             let str = JSON.stringify(component.content[identifier]);
                             let end = "";
