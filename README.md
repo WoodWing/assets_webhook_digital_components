@@ -1,7 +1,7 @@
-# elvis_plugin_article_components
+# assets_webhook_digital_components
 
 ## Installation
-The server can either be installed on the Elvis Server or on a separate machine.
+The server can either be installed on the Assets Server or on a separate machine.
 
 * Clone or download this package.
 * Open src/config.ts and configure the settings. You can either configure the settings in this config file or by setting environment variables.
@@ -13,12 +13,12 @@ The server can either be installed on the Elvis Server or on a separate machine.
 * The server is correctly started when a startup message is showed.
 
 ## Configure webhook
-An Elvis webhook needs to be configured if you want to detect description updates directly when they are changed in Elvis. 
+An Assets webhook needs to be configured if you want to detect description updates directly when they are changed in Assets. 
 
-- Log-in to the Elvis web client as admin user.
+- Log-in to the Assets web client as admin user.
 - Go to the management console, webhooks section and add a new webhook.
 - Name: For example, "Tag Translation".
-- URL: Point it to the URL where the image recognition server is running, if it's running on the same machine as Elvis and you did not change the port number in `src/config.ts`, this will be: http://localhost:7080/.
+- URL: Point it to the URL where the image recognition server is running, if it's running on the same machine as Assets and you did not change the port number in `src/config.ts`, this will be: http://localhost:7080/.
 - Event type: `asset_create`.
 - Metadata to include: none
 - Asset event configuration: none
